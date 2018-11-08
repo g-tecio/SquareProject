@@ -21,8 +21,8 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Trigger1")
         {
-            GameObject.Find("PlayerCamera").GetComponent<CameraEffect>().RotateCamera(x: 0, y: 0, z: 90);
-            GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
+            //GameObject.Find("PlayerCamera").GetComponent<CameraEffect>().RotateCamera(x: 0, y: 0, z: 90);
+            //GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
             moveSpectX = false;
             moveSpectY = true;
             moveSpectXNegative = false;
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour {
 
         if (collision.gameObject.tag == "Trigger2")
         {
-            GameObject.Find("PlayerCamera").GetComponent<CameraEffect>().RotateCamera(x: 0, y: 0, z: 90);
-            GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
+            //GameObject.Find("PlayerCamera").GetComponent<CameraEffect>().RotateCamera(x: 0, y: 0, z: 90);
+            //GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
             moveSpectX = false;
             moveSpectY = false;
             moveSpectXNegative = true;
@@ -41,15 +41,15 @@ public class Player : MonoBehaviour {
 
         if (collision.gameObject.tag == "Trigger3")
         {
-            GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
+            //GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
             moveSpectX = false;
             moveSpectY = false;
             moveSpectXNegative = false;
             moveSpectYNegative = true;
         }
-        if (collision.gameObject.tag == "Trigger3")
+        if (collision.gameObject.tag == "Trigger4")
         {
-            GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
+            //GameObject.Find("Earth").GetComponent<SquareMovement>().RotateSquare(x: 0, y: 0, z: 90);
             moveSpectX = true;
             moveSpectY = false;
             moveSpectXNegative = false;
