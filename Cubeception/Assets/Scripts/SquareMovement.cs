@@ -12,10 +12,10 @@ public class SquareMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		squareRotation();
+		squareMove();
 	}
 
-	void squareRotation(){
+	void squareMove(){
 		transform.position = transform.position + (new Vector3(speed, 0,0) * Time.deltaTime);
 	}
 }
