@@ -6,16 +6,18 @@ public class RotationTrigger : MonoBehaviour {
 public GameObject floor;
 public float speed;
 
+void Start(){
+    enabled = false;
+}
 
 void Update(){
-	
+	goingUp();
 }
 private void OnTriggerEnter2D(Collider2D col){
 	if (col.gameObject.tag == "Player")
         {
             floor.transform.Rotate(0,0,90);
-			
-            
+            enabled = true;
 }
 }
 
