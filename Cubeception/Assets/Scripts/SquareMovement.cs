@@ -8,18 +8,18 @@ public class SquareMovement : MonoBehaviour {
   
     
 
-    void Start () {
-
+  public void Start () {
+        enabled = true;
     }
 
 
 
     void Update()
     {
-        Rotation();
+        Movement();
     }
 
-    void Rotation(){
+    void Movement(){
         transform.position = transform.position + (new Vector3(speed,0,0) * Time.deltaTime);
     }
 

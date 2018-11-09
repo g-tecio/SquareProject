@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20facbf0c4cd942d39c5358126fb93a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 2
 --- !u!1 &1323947550
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,13 +652,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061308247}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.87, y: 0.89, z: -0.0227}
+  m_LocalRotation: {x: -0.000038531427, y: -0.000000007450581, z: 0.99999976, w: 0.00078254647}
+  m_LocalPosition: {x: -0.887, y: 0.845, z: -0.020000182}
   m_LocalScale: {x: 0.064625, y: 0.78753203, z: 0.47}
   m_Children: []
   m_Father: {fileID: 328305637}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.004, z: 179.91}
 --- !u!68 &2061308249
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -674,8 +674,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -5.160847, y: 0.49858668}
-  - {x: 1.1163772, y: -0.07589451}
+  - {x: -6.1578097, y: 0.42017153}
+  - {x: -4.9321184, y: -0.4128706}
 --- !u!114 &2061308250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 956153021}
-  speed: 0.82
+  speed: 22.69
 --- !u!1 &2111349557
 GameObject:
   m_ObjectHideFlags: 0
