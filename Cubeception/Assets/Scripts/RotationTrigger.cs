@@ -22,7 +22,8 @@ private void OnTriggerEnter2D(Collider2D col){
 }
 
 void goingUp(){
-	floor.transform.position = floor.transform.position + (new Vector3(0, speed,0) * Time.deltaTime);
+	//floor.transform.position = floor.transform.position + (new Vector3(0, speed,0) * Time.deltaTime);
+    
 }
 
 }
