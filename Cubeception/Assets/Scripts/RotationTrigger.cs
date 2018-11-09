@@ -11,18 +11,17 @@ void Start(){
 }
 
 void Update(){
-	goingUp();
+	Rotation();
 }
 private void OnTriggerEnter2D(Collider2D col){
 	if (col.gameObject.tag == "Player")
         {
-            floor.transform.Rotate(0,0,90);
             enabled = true;
 }
 }
 
-void goingUp(){
-	//floor.transform.position = floor.transform.position + (new Vector3(0, speed,0) * Time.deltaTime);
+void Rotation(){
+	transform.Rotate(0,0, -speed * Time.deltaTime, Space.World);
     
 }
 

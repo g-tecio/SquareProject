@@ -16,7 +16,11 @@ public class SquareMovement : MonoBehaviour {
 
     void Update()
     {
-        transform.Rotate(0,0, -speed * Time.deltaTime, Space.World);
+        Rotation();
+    }
+
+    void Rotation(){
+        transform.position = transform.position + (new Vector3(speed,0,0) * Time.deltaTime);
     }
 
    
