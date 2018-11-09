@@ -21,7 +21,7 @@ private void OnTriggerEnter2D(Collider2D col){
 }
 
 void Rotation(){
-	transform.Rotate(0,0, -speed * Time.deltaTime, Space.World);
+	floor.transform.Rotate(0,0, -speed * Time.deltaTime, Space.World);
     
 }
 
