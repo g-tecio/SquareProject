@@ -8,6 +8,7 @@ TagManager:
   - Trigger2
   - Trigger3
   - Trigger4
+  - Square
   layers:
   - Default
   - TransparentFX

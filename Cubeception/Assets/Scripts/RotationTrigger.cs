@@ -3,32 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RotationTrigger : MonoBehaviour {
-public GameObject floor;
+public GameObject pivot;
 public float speed;
+public GameObject square;
 
 void Start(){
-    enabled = false;
+    
 }
 
 void Update(){
-	Rotation();
+
+ 
+  
 }
 private void OnTriggerEnter2D(Collider2D col){
 	if (col.gameObject.tag == "Player")
         {
-            enabled = true;
-            StopMovement();
+           
+            StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
+            //Rotation();
+            stopMovement();
+                        
 }
 }
 
 void Rotation(){
-	floor.transform.Rotate(0,0, -speed * Time.deltaTime, Space.World);
-    
+	//pivot.transform.Rotate(0,0, -90);    
 }
 
-public void StopMovement(){
-    GameObject.Find("Earth").GetComponent<SquareMovement>().enabled = false;
+void stopMovement(){
+GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
 }
+
+
+
+
+IEnumerator RotateMe(Vector3 byAngles, float time){
+    var fromAngle = pivot.transform.rotation;
+    var toAngle = Quaternion.Euler(pivot.transform.eulerAngles + byAngles);
+    for(var t = 0f; t < 1; pivot.transform.rotation = toAngle, t+= Time.deltaTime/time){
+        pivot.transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+        yield return null;
+    }
+    GameObject.Find("Square").GetComponent<SquareMovement>().enabled=true;
+}
+
 
 
 }
