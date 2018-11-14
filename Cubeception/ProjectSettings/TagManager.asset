@@ -9,6 +9,15 @@ TagManager:
   - Trigger3
   - Trigger4
   - Square
+  - Destroy1
+  - Destroy2
+  - Destroy3
+  - Destroy4
+  - Spawn1
+  - Spawn2
+  - Spawn3
+  - Spawn4
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -30,8 +30,6 @@ public class Jump : MonoBehaviour {
 		if(col.gameObject.tag == "Square")
 		{
 			grounded = true;
-
-			Debug.Log("Esto Pasa: " + grounded);
 		}
 	}
 
