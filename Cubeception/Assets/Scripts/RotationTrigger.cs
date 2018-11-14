@@ -23,6 +23,7 @@ private void OnTriggerEnter2D(Collider2D col){
             StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
             //Rotation();
             stopMovement();
+            GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
                         
 }
 }
