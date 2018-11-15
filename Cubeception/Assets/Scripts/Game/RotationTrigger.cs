@@ -21,20 +21,25 @@ private void OnTriggerEnter2D(Collider2D col){
         {
            
             StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
-            //Rotation();
             stopMovement();
-            GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
+            addScore();
+            addSpeed();
                         
 }
 }
 
-void Rotation(){
-	//pivot.transform.Rotate(0,0, -90);    
-}
+
 
 void stopMovement(){
 GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
 }
+    void addSpeed(){
+        GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.1f;
+    }
+
+    void addScore(){
+        GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
+    }
 
 
 
