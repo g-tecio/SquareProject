@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotationTrigger : MonoBehaviour {
 public GameObject pivot;
 public float speed;
-GameObject square;
+
 
 void Start(){
     
@@ -24,6 +24,7 @@ private void OnTriggerEnter2D(Collider2D col){
             stopMovement();
             addScore();
             addSpeed();
+            addScale();
                         
 }
 }
@@ -39,6 +40,10 @@ GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
 
     void addScore(){
         GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
+    }
+
+    void addScale(){
+        GameObject.Find("Square").GetComponent<SquareMovement>().Scale(0.1f);
     }
 
 
