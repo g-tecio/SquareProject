@@ -23,7 +23,7 @@ public class SquareMovement : MonoBehaviour {
     }
 
     //public void Scale(float scale){
-    //    transform.localScale += new Vector3(scale, 0, 0);
+    //    transform.localScale += new Vector3(0, scale, 0);
     //}
 
 }
