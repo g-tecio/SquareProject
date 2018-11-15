@@ -51,7 +51,7 @@ public class SpawnObstacle : MonoBehaviour
     {
         
         Vector2 pos;
-        int space = Random.RandomRange(6 , 12);
+        int space = Random.Range(6 , 12);
         if(space % 2 != 0){
 
             pos.x = (space);
@@ -64,7 +64,6 @@ public class SpawnObstacle : MonoBehaviour
             pos.y = posY;
 
             return pos;
-        }   
-            return pos;
+        }  
     }
 }
