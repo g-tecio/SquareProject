@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212311120989070640}
   - component: {fileID: 114507971264005364}
   - component: {fileID: 50168027323893600}
-  - component: {fileID: 68373740035935474}
+  - component: {fileID: 60752994957995182}
   m_Layer: 0
   m_Name: ObsN1
   m_TagString: Enemy
@@ -62,9 +62,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!68 &68373740035935474
-EdgeCollider2D:
+  m_Constraints: 3
+--- !u!60 &60752994957995182
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,11 +76,28 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.88, y: 0.75}
+    newSize: {x: 0.88, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -0.4, y: -0.35}
-  - {x: 0.0000000027939677, y: 0.35}
-  - {x: 0.4, y: -0.35}
+    m_Paths:
+    - - {x: 0.14, y: 0.185}
+      - {x: 0.07, y: 0.305}
+      - {x: 0.03, y: 0.375}
+      - {x: -0.04, y: 0.375}
+      - {x: -0.21, y: 0.065}
+      - {x: -0.39999998, y: -0.265}
+      - {x: -0.44, y: -0.36499998}
+      - {x: -0.44, y: -0.375}
+      - {x: 0.44, y: -0.375}
+      - {x: 0.44, y: -0.33499998}
+      - {x: 0.32999998, y: -0.145}
 --- !u!114 &114507971264005364
 MonoBehaviour:
   m_ObjectHideFlags: 1
