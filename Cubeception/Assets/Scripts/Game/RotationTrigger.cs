@@ -24,7 +24,7 @@ private void OnTriggerEnter2D(Collider2D col){
             stopMovement();
             addScore();
             addSpeed();
-            addScale();
+            //addScale();
                         
 }
 }
@@ -42,9 +42,9 @@ GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
         GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
     }
 
-    void addScale(){
-        GameObject.Find("Square").GetComponent<SquareMovement>().Scale(0.1f);
-    }
+    //void addScale(){
+    //    GameObject.Find("Square").GetComponent<SquareMovement>().Scale(0.1f);
+    //}
 
 
 

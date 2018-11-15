@@ -1998,7 +1998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a92b7627ccdd48c190c45ff4fc3df10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathEffectObj: {fileID: 1836394920985828, guid: 62a4b4d94626b4b9fb256d5d0cd3b2f9,
+  DeathEffectObj: {fileID: 1719408546096312, guid: be5675178d34d478e86c7446dc39fd5f,
     type: 2}
 --- !u!68 &1812593208
 EdgeCollider2D:

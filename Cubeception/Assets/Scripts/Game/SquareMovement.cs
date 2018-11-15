@@ -22,8 +22,8 @@ public class SquareMovement : MonoBehaviour {
         transform.position = transform.position + (new Vector3(speed,0,0) * Time.deltaTime);
     }
 
-    public void Scale(float scale){
-        transform.localScale += new Vector3(scale, 0, 0);
-    }
+    //public void Scale(float scale){
+    //    transform.localScale += new Vector3(scale, 0, 0);
+    //}
 
 }
