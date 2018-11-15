@@ -7,8 +7,23 @@ public class GameManager : MonoBehaviour {
 
     public GameObject gameOverPanel;
 
+    void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void GameOver(){
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    IEnumerator GameOverCoroutine(){
+        yield return new WaitForSecondsRealtime(0.3f);
+        Time.timeScale = 0.01f;
+        yield return new WaitForSecondsRealtime(0.5f);
         gameOverPanel.SetActive(true);
+
+        yield break;
+
     }
 
     public void Restart(){
