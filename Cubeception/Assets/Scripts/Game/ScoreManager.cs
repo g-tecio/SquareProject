@@ -19,5 +19,9 @@ public class ScoreManager : MonoBehaviour {
         if((currentScore % 2) == 0){
             GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f);
         }
+
+        if((currentScore % 3) == 0){
+            GameObject.Find("Player").GetComponent<Jump>().jumpforce += 1f;
+        }
 	}
 }
