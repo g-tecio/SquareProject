@@ -23,13 +23,13 @@ public class RotationTrigger : MonoBehaviour {
             stopMovement();
             //addScore();
             addSpeed();
-            addBackground();
+            //addBackground();
         }
     }
 
-    void addBackground(){
-        GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
-    }
+    //void addBackground(){
+    //    GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
+    //}
 
 
     void stopMovement(){
