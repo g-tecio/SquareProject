@@ -23,14 +23,19 @@ public class RotationTrigger : MonoBehaviour {
             stopMovement();
             //addScore();
             addSpeed();
+            addBackground();
         }
     }
 
+    void addBackground(){
+        GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
+    }
 
 
     void stopMovement(){
-    GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
+        GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
     }
+
     void addSpeed()
     {
         if (GameObject.Find("Square").GetComponent<SquareMovement>().speed < 2.3f)

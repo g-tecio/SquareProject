@@ -16,10 +16,6 @@ public class ScoreManager : MonoBehaviour {
 		currentScore++;
 		currentScoreText.text = currentScore.ToString();
 
-        if((currentScore % 2) == 0){
-            GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
-        }
-
         if((currentScore % 3) == 0){
             GameObject.Find("Player").GetComponent<Jump>().jumpforce += 1f;
         }
