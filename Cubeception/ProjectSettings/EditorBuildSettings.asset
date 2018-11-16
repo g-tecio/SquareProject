@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LauchScreen.unity
     guid: 39eac33679b5445dd98809526849cd20
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 3da131899222347b8a627f6ac9462593
-  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
