@@ -21,7 +21,7 @@ public class RotationTrigger : MonoBehaviour {
                
             StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
             stopMovement();
-            addScore();
+            //addScore();
             addSpeed();
         }
     }
@@ -31,13 +31,17 @@ public class RotationTrigger : MonoBehaviour {
     void stopMovement(){
     GameObject.Find("Square").GetComponent<SquareMovement>().enabled=false;
     }
-    void addSpeed(){
-        GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.1f;
+    void addSpeed()
+    {
+        if (GameObject.Find("Square").GetComponent<SquareMovement>().speed < 2.3f)
+        {
+            GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.01f;
+        }
     }
 
-    void addScore(){
-        GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
-    }
+    //void addScore(){
+    //    GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
+    //}
 
 
     IEnumerator RotateMe(Vector3 byAngles, float time){

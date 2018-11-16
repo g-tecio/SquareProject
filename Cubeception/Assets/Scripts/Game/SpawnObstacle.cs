@@ -28,7 +28,10 @@ public class SpawnObstacle : MonoBehaviour
     }
      private void OnTriggerEnter2D(Collider2D other)
     {
-        SpawnObj();
+        if(other.gameObject.tag == "Player"){
+            SpawnObj();
+        }
+
     }
 
     public void SpawnObj()
@@ -51,19 +54,24 @@ public class SpawnObstacle : MonoBehaviour
     {
         
         Vector2 pos;
-        int space = Random.Range(6 , 12);
-        if(space % 2 != 0){
+        float space = Random.Range(minRn , maxRn);
 
-            pos.x = (space);
-            pos.y = posY;
+        pos.x = space;
+        pos.y = posY;
 
-            return pos;
+        return pos;
+        //if(space % 2 != 0){
 
-        }else{
-            pos.x = (space + minRn);
-            pos.y = posY;
+        //    pos.x = (space);
+        //    pos.y = posY;
 
-            return pos;
-        }  
+        //    return pos;
+
+        //}else{
+        //    pos.x = (space + minRn);
+        //    pos.y = posY;
+
+        //    return pos;
+        //}  
     }
 }

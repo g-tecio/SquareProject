@@ -18,6 +18,7 @@ TagManager:
   - Spawn3
   - Spawn4
   - Enemy
+  - AddTrigger
   layers:
   - Default
   - TransparentFX
