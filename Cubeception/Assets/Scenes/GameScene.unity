@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.2
+  minRn: 13
   maxRn: 14
   posY: 6.25
 --- !u!68 &24886813
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.4
+  minRn: 13
   maxRn: 14
   posY: 6.25
 --- !u!68 &593483095
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.35
+  minRn: 13.3
   maxRn: 14
   posY: 6.25
 --- !u!68 &644067908
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.35
+  minRn: 13.3
   maxRn: 14
   posY: 6.25
 --- !u!68 &679377973
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.2
+  minRn: 13
   maxRn: 14
   posY: 6.25
 --- !u!68 &859669726
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.35
+  minRn: 13.3
   maxRn: 14
   posY: 6.25
 --- !u!68 &2023500185
@@ -3238,7 +3238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numObjects: 1
   obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
-  minRn: 13.35
+  minRn: 13.3
   maxRn: 14
   posY: 6.25
 --- !u!68 &2026718141
