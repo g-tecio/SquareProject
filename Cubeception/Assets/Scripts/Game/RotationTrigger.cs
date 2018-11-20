@@ -24,11 +24,25 @@ public class RotationTrigger : MonoBehaviour {
             //addScore();
             addSpeed();
             addBackground();
+            MoreJump();
+            AddGravity();
         }
     }
 
     void addBackground(){
         GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
+    }
+
+    void AddGravity(){
+        if(GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale < 2.85){
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale += 0.05f;
+        }
+    }
+
+    void MoreJump(){
+        if(GameObject.Find("Player").GetComponent<Jump>().jumpforce < 498.75){
+            GameObject.Find("Player").GetComponent<Jump>().jumpforce += 8.75f;
+        }
     }
 
 
@@ -38,9 +52,9 @@ public class RotationTrigger : MonoBehaviour {
 
     void addSpeed()
     {
-        if (GameObject.Find("Square").GetComponent<SquareMovement>().speed < 2.3f)
+        if (GameObject.Find("Square").GetComponent<SquareMovement>().speed < 2.85f)
         {
-            GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.01f;
+            GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.05f;
         }
     }
 

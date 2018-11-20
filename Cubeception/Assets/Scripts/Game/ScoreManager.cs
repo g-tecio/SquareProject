@@ -36,10 +36,6 @@ public class ScoreManager : MonoBehaviour {
             PlayerPrefs.SetInt("BestScore", currentScore);
         }
 
-        if((currentScore % 3) == 0){
-            GameObject.Find("Player").GetComponent<Jump>().jumpforce += 1f;
-        }
-
         if (currentScore == 10)
         {
             spawner1.SetActive(true);

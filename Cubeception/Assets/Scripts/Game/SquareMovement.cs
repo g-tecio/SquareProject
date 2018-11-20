@@ -5,8 +5,12 @@ using UnityEngine;
 public class SquareMovement : MonoBehaviour {
 
 	public float speed;
+    float duration;
 
-  public void Start () {
+    float t = 0f;
+    Color color1, color2;
+
+    public void Start () {
         enabled = true;
     }
 
@@ -14,7 +18,6 @@ public class SquareMovement : MonoBehaviour {
 
     void Update()
     {
-        
         Movement(speed);
     }
 
