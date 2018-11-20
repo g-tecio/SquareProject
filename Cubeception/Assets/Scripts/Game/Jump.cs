@@ -32,5 +32,4 @@ public class Jump : MonoBehaviour {
 			grounded = true;
 		}
 	}
-
 }
