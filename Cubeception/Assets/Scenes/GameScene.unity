@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 1337937744}
   speed: 0
+  skybox1: {fileID: 2100000, guid: 127a447b743814f00b57a0e062e59902, type: 2}
 --- !u!68 &123352341
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 1337937744}
   speed: 0
+  skybox1: {fileID: 2100000, guid: 00c6b791c904b4b55b244942c5108ba4, type: 2}
 --- !u!68 &445744773
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -795,6 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 1337937744}
   speed: 0
+  skybox1: {fileID: 2100000, guid: a6afdced3f7644af0a77ffc46d3f03b8, type: 2}
 --- !u!68 &593327519
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1698,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 1337937744}
   speed: 0
+  skybox1: {fileID: 2100000, guid: a6b878f53d2374235828e1a2d7be71e2, type: 2}
 --- !u!61 &1212644807
 BoxCollider2D:
   m_ObjectHideFlags: 0
