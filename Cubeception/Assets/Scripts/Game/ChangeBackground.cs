@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class ChangeBackground : MonoBehaviour {
 
-    private Camera cameraColor;
-    private float cycleSeconds = 10f;
-    void Awake()
-    {
-        cameraColor = GetComponent<Camera>();
-    }
+    public UnityEngine.UI.RawImage img;
 
-    // Update is called once per frame
-    void Update()
-    {
-        cameraColor.backgroundColor = Color.HSVToRGB(
-            Mathf.Repeat(Time.time / cycleSeconds, 1f),
-            0.3f, 0.7f
-        );
-    }
+private Texture2D backgroundTexture ;
 
-    void Changecolor()
-    {
-        // camera.backgroundColor = Color.HSVToRGB(
-        //     Mathf.Repeat(Time.time / cycleSeconds, 1f),
-        //     0.3f, 0.7f
-        // );
-    }
+void Awake()
+{
+    backgroundTexture  = new Texture2D(1, 2);
+    backgroundTexture.wrapMode = TextureWrapMode.Clamp;
+    backgroundTexture.filterMode = FilterMode.Bilinear;
+    SetColor( Color.black, Color.white ) ;
+}
+
+public void SetColor( Color color1, Color color2 )
+{
+    backgroundTexture.SetPixels( new Color[] { color1, color2 } );
+    backgroundTexture.Apply();
+    img.texture = backgroundTexture;
+}
 }
