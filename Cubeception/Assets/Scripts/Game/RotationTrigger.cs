@@ -7,6 +7,7 @@ public class RotationTrigger : MonoBehaviour {
     public float speed;
 
 
+
     void Start(){
         
     }
@@ -21,11 +22,12 @@ public class RotationTrigger : MonoBehaviour {
                
             StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
             stopMovement();
-            //addScore();
             addSpeed();
             addBackground();
             MoreJump();
             AddGravity();
+         
+
         }
     }
 
@@ -57,10 +59,6 @@ public class RotationTrigger : MonoBehaviour {
             GameObject.Find("Square").GetComponent<SquareMovement>().speed += 0.05f;
         }
     }
-
-    //void addScore(){
-    //    GameObject.Find("GameManager").GetComponent<ScoreManager>().AddScore();
-    //}
 
 
     IEnumerator RotateMe(Vector3 byAngles, float time){
