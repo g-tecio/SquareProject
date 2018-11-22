@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1969854849317684, guid: 848c94819d826424d9dabdebf205adbd, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1969854849317684, guid: 848c94819d826424d9dabdebf205adbd, type: 2}
   minRn: 13.3
   maxRn: 14
   posY: 6.25
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1784332175818004, guid: 79d8fb2341b2f42029ba5c3b647ae1ca, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1784332175818004, guid: 79d8fb2341b2f42029ba5c3b647ae1ca, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1784332175818004, guid: 79d8fb2341b2f42029ba5c3b647ae1ca, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
@@ -2545,6 +2545,7 @@ GameObject:
   - component: {fileID: 1622390669}
   - component: {fileID: 1622390670}
   - component: {fileID: 1622390671}
+  - component: {fileID: 1622390672}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2596,6 +2597,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1099516624}
+--- !u!114 &1622390672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622390668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa40c0a074de408bbff353739ce6a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathEffectObj: {fileID: 0}
 --- !u!1 &1738734435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1887131397
 Transform:
   m_ObjectHideFlags: 0
@@ -3097,7 +3110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1969854849317684, guid: 848c94819d826424d9dabdebf205adbd, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
@@ -3229,7 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1784332175818004, guid: 79d8fb2341b2f42029ba5c3b647ae1ca, type: 2}
   minRn: 13.3
   maxRn: 14
   posY: 6.25
@@ -3295,7 +3308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 1
-  obj1: {fileID: 1505724152489110, guid: 63390926eeaa74f8eb2565e55d78f285, type: 2}
+  obj1: {fileID: 1969854849317684, guid: 848c94819d826424d9dabdebf205adbd, type: 2}
   minRn: 13
   maxRn: 14
   posY: 6.25
