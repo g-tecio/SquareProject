@@ -65,7 +65,7 @@ public class ScoreManager : MonoBehaviour {
         }
         if (currentScore == 5)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB6");
+            UIBackground.sprite = (Resources.Load<Sprite>("Backgrounds/RectangleB6"));
         }
         if (currentScore == 6)
         {
