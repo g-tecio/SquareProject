@@ -6,11 +6,6 @@ using UnityEngine.Rendering;
 public class RotationTrigger : MonoBehaviour {
     public GameObject pivot;
     public float speed;
-    public Material skybox1;
-    
-   
-
-
 
     void Start(){
         
@@ -30,8 +25,6 @@ public class RotationTrigger : MonoBehaviour {
             addBackground();
             MoreJump();
             AddGravity();
-            RenderSettings.skybox = skybox1;
-           
         }
     }
 

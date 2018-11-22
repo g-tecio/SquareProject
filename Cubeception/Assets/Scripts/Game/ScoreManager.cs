@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
@@ -12,8 +13,9 @@ public class ScoreManager : MonoBehaviour {
     public GameObject spawner8;
     public GameObject spawner10;
 
+    public Image UIBackground;
 
-	int currentScore = 0;
+    public int currentScore = 0;
 	public TextMeshProUGUI currentScoreText;
     public TextMeshProUGUI bestScoreText;
 
@@ -21,6 +23,7 @@ public class ScoreManager : MonoBehaviour {
 	void Start () 
 	{
         GetBestScore();
+        UIBackground = GameObject.Find("BackgroundImage").GetComponent<Image>();
 	}
 
     void GetBestScore(){
@@ -45,5 +48,40 @@ public class ScoreManager : MonoBehaviour {
             spawner8.SetActive(true);
             spawner10.SetActive(true);
         }
-	}
+
+        if(currentScore == 1){
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB2");
+        }
+        if(currentScore == 2){
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB3");
+        }
+        if (currentScore == 3)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB4");
+        }
+        if (currentScore == 4)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB5");
+        }
+        if (currentScore == 5)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB6");
+        }
+        if (currentScore == 6)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB7");
+        }
+        if (currentScore == 7)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB8");
+        }
+        if (currentScore == 8)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB9");
+        }
+        if (currentScore == 9)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB10");
+        }
+    }
 }
