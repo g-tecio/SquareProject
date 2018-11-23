@@ -15,6 +15,7 @@ public class CollisionObst : MonoBehaviour {
     		Destroy(effectObj, 1.5f);
     		Destroy(collision.gameObject);
             GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+            GameObject.Find("DestroyEnemy").GetComponent<BoxCollider2D>().enabled = false;
     		
     	}
 	}
