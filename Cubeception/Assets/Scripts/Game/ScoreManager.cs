@@ -50,38 +50,73 @@ public class ScoreManager : MonoBehaviour {
         }
 
         if(currentScore == 1){
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB2");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle1");
         }
         if(currentScore == 2){
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB3");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle2");
         }
         if (currentScore == 3)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB4");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle3");
         }
         if (currentScore == 4)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB5");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle4");
         }
         if (currentScore == 5)
         {
-            UIBackground.sprite = (Resources.Load<Sprite>("Backgrounds/RectangleB6"));
+            UIBackground.sprite = (Resources.Load<Sprite>("Backgrounds/Blue/Rectangle5"));
         }
         if (currentScore == 6)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB7");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle6");
         }
         if (currentScore == 7)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB8");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle7");
         }
         if (currentScore == 8)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB9");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle8");
         }
         if (currentScore == 9)
         {
-            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/RectangleB10");
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle9");
         }
+        if(currentScore == 10){
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle9");
+        }
+        if(currentScore == 11){
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle8");
+        }
+        if (currentScore == 12)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle7");
+        }
+        if (currentScore == 13)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle6");
+        }
+        if (currentScore == 14)
+        {
+            UIBackground.sprite = (Resources.Load<Sprite>("Backgrounds/Blue/Rectangle5"));
+        }
+        if (currentScore == 15)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle4");
+        }
+        if (currentScore == 16)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle3");
+        }
+        if (currentScore == 17)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle2");
+        }
+        if (currentScore == 18)
+        {
+            UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/Blue/Rectangle1");
+        }
+
     }
 }
