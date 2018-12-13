@@ -9,4 +9,12 @@ public class LoadGame : MonoBehaviour {
 		SceneManager.LoadScene("GameScene");
 	}
 
+	public void Instructions(){
+		SceneManager.LoadScene(2);
+	}
+
+	public void ReturnMenu(){
+		SceneManager.LoadScene(1);
+	}
+
 }

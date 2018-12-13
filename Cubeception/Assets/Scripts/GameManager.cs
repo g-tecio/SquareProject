@@ -8,7 +8,9 @@ using TMPro;
 public class GameManager : MonoBehaviour {
 
     public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton,rotateHexagon;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo;
+
+    // public AudioSource audio;
 
    
 
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour {
         currentScoreText.SetActive(false);
         tapToStart.SetActive(true);
         startButton.SetActive(true);
+        speaker.SetActive(true);
+        instructions.SetActive(true);
+        logo.SetActive(true);
 
     }
 
@@ -26,6 +31,9 @@ public class GameManager : MonoBehaviour {
         currentScoreText.SetActive(true);
         tapToStart.SetActive(false);
         startButton.SetActive(false);
+        speaker.SetActive(false);
+        instructions.SetActive(false);
+        logo.SetActive(false);
         
     }
 
@@ -48,6 +56,11 @@ public class GameManager : MonoBehaviour {
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        // audio = GetComponent<AudioSource>();
+        
+        // DontDestroyOnLoad(transform.audioFile);
+       
     }
 
 }
