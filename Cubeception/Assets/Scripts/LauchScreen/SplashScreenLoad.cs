@@ -17,7 +17,7 @@ public class SplashScreenLoad : MonoBehaviour
         yield return new WaitForSecondsRealtime(2.5f);
         FadeOut();
         yield return new WaitForSecondsRealtime(2.5f);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GameScene");
     }
 
     void FadeIn()

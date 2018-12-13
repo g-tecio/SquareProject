@@ -2,16 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class GameManager : MonoBehaviour {
 
     public GameObject gameOverPanel;
+    public GameObject currentScoreText,tapToStart,startButton,rotateHexagon;
+
    
 
     void Awake()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 0;
+        currentScoreText.SetActive(false);
+        tapToStart.SetActive(true);
+        startButton.SetActive(true);
+
     }
+
+    public void startGame() {
+        Time.timeScale = 1;
+        currentScoreText.SetActive(true);
+        tapToStart.SetActive(false);
+        startButton.SetActive(false);
+        
+    }
+
+   
 
     public void GameOver(){
         StartCoroutine(GameOverCoroutine());
@@ -30,9 +48,6 @@ public class GameManager : MonoBehaviour {
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
-        
-
     }
 
 }
