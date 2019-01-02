@@ -10,11 +10,11 @@ public class LoadGame : MonoBehaviour {
 	}
 
 	public void Instructions(){
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(1);
 	}
 
 	public void ReturnMenu(){
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(0);
 	}
 
 }

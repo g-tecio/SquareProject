@@ -9,7 +9,7 @@ using UnityEngine.Advertisements;
 public class GameManager : MonoBehaviour {
 
     public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards;
 
     // public AudioSource audio;
 
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
         speaker.SetActive(true);
         instructions.SetActive(true);
         logo.SetActive(true);
+        store.SetActive(true);
+        leadboards.SetActive(true);
 
     }
 
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour {
         speaker.SetActive(false);
         instructions.SetActive(false);
         logo.SetActive(false);
+         store.SetActive(false);
+        leadboards.SetActive(false);
         
     }
 
