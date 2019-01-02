@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Advertisements;
 
 
 public class GameManager : MonoBehaviour {
@@ -56,11 +57,7 @@ public class GameManager : MonoBehaviour {
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
-        // audio = GetComponent<AudioSource>();
-        
-        // DontDestroyOnLoad(transform.audioFile);
-       
+        Advertisement.Show();
     }
 
 }
