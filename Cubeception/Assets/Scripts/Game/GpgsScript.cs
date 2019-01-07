@@ -11,6 +11,8 @@ public class GpgsScript : MonoBehaviour {
 
 	int points = 0;
 	public TextMeshProUGUI pointsText;
+
+	public GameObject login;
 	// Use this for initialization
 	void Start () {
 		//Debug
@@ -34,6 +36,7 @@ public class GpgsScript : MonoBehaviour {
 			if(sucess)
 			{
 				Debug.Log("Login Sucess");
+				login.SetActive(true);
 			}
 			else
 			{
