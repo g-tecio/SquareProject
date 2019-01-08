@@ -7,29 +7,15 @@ public class RotationTrigger : MonoBehaviour {
     public GameObject pivot;
     public float speed;
 
-    void Start(){
-        
-    }
-
-    void Update(){
-
-     
-      
-    }
     private void OnTriggerEnter2D(Collider2D col){
     	if (col.gameObject.tag == "Player"){
                
             StartCoroutine(RotateMe(Vector3.back * 90, 0.8f));
             stopMovement();
-            addSpeed();
-            addBackground();
+            addSpeed(); 
             MoreJump();
             AddGravity();
         }
-    }
-
-    void addBackground(){
-        GameObject.Find("Camera").GetComponent<Camera>().backgroundColor = new Color(Random.value, Random.value, Random.value, 1.0f * Time.deltaTime);
     }
 
     void AddGravity(){

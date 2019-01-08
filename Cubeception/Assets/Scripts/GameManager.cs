@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour {
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour {
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards;
 
     // public AudioSource audio;
+
+     public Image UIBackground;
+     int randomBackground;
+
 
    
 
@@ -27,6 +32,35 @@ public class GameManager : MonoBehaviour {
         store.SetActive(true);
         leadboards.SetActive(true);
 
+        //Random Background
+        UIBackground = GameObject.Find("PanelImageBackground").GetComponent<Image>();
+        randomBackground = Random.Range(1,8);
+        switch(randomBackground)
+        {
+             case 1:
+                UIBackground.sprite = Resources.Load<Sprite>("Assets/Backgrounds/gradient1");
+                break;
+            case 2:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient2");
+                break;
+            case 3:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient3");
+                break;
+            case 4:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient4");
+                break;
+            case 5:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient5");
+                break;
+            case 6:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient6");
+                break;
+            case 7:
+                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient7");
+                break;
+        }
+        
+
     }
 
     public void startGame() {
@@ -38,11 +72,8 @@ public class GameManager : MonoBehaviour {
         instructions.SetActive(false);
         logo.SetActive(false);
          store.SetActive(false);
-        leadboards.SetActive(false);
-        
+        leadboards.SetActive(false); 
     }
-
-   
 
     public void GameOver(){
         StartCoroutine(GameOverCoroutine());
@@ -54,9 +85,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSecondsRealtime(0.5f);
         gameOverPanel.SetActive(true);
         GetComponent<ScoreManager>().currentScoreText.color = Color.white;
-
         yield break;
-
     }
 
     public void Restart(){
