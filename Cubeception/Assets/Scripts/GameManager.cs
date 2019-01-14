@@ -9,8 +9,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards;
+      public GameObject gameOverPanel;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton;
+    bool toggle;
+    
 
     // public AudioSource audio;
 
@@ -31,9 +33,10 @@ public class GameManager : MonoBehaviour {
         logo.SetActive(true);
         store.SetActive(true);
         leadboards.SetActive(true);
+        
 
         //Random Background
-        UIBackground = GameObject.Find("PanelImageBackground").GetComponent<Image>();
+       /*  UIBackground = GameObject.Find("PanelImageBackground").GetComponent<Image>();
         randomBackground = Random.Range(1,8);
         switch(randomBackground)
         {
@@ -58,10 +61,46 @@ public class GameManager : MonoBehaviour {
             case 7:
                 UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient7");
                 break;
-        }
+        } */
         
+          if (PlayerPrefs.HasKey("select"))
+        {
+            if (PlayerPrefs.GetInt("select") == 1)
+            {
+                toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn = true;
+                AudioListener.volume = 0f;
+            }
+            else
+            {
+                toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn = false;
+                AudioListener.volume = 1f;
+            }
+        }
 
     }
+
+    void Start()
+    {
+      
+    }
+
+    void Update()
+    {
+        if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
+        {
+            print("THE SOUND IS MUTED");
+            PlayerPrefs.SetInt("select", 1);
+            AudioListener.volume = 0f;
+        }
+        else
+        {
+            print("THE SOUND IS TURNED ON");
+            PlayerPrefs.SetInt("select", 0);
+            AudioListener.volume = 1f;
+        }
+    }
+
+
 
     public void startGame() {
         Time.timeScale = 1;
