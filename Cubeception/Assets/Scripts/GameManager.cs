@@ -7,21 +7,23 @@ using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 
+
 public class GameManager : MonoBehaviour {
 
       public GameObject gameOverPanel;
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton;
     bool toggle;
+    int numGame;
     
 
     // public AudioSource audio;
 
      public Image UIBackground;
      int randomBackground;
-
-     public string bannerPlacement = "QbixBanner";
+     public string videoPlacement = "video";
      public bool testMode = false;
     public const string gameID = "2988439";
+    
 
 
    
@@ -85,31 +87,30 @@ public class GameManager : MonoBehaviour {
 
     void Start () {
         Advertisement.Initialize (gameID, testMode);
-        StartCoroutine (ShowBannerWhenReady ());
+         numGame = PlayerPrefs.GetInt("numGame");
+        
+        
     }
 
-    IEnumerator ShowBannerWhenReady () {
-        while (!Advertisement.IsReady ("banner")) {
-            yield return new WaitForSeconds (0.5f);
-        }
-        Advertisement.Show (bannerPlacement);
-    }
-
+    
 
     void Update()
     {
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
         {
-            print("THE SOUND IS MUTED");
+            
             PlayerPrefs.SetInt("select", 1);
             AudioListener.volume = 0f;
         }
         else
         {
-            print("THE SOUND IS TURNED ON");
+            
             PlayerPrefs.SetInt("select", 0);
             AudioListener.volume = 1f;
         }
+
+       
+        
     }
 
 
@@ -141,7 +142,13 @@ public class GameManager : MonoBehaviour {
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Advertisement.Show();
+        numGame = numGame + 1;
+        PlayerPrefs.SetInt("numGame", numGame);
+
+        if (numGame % 3 == 0)
+        {
+              Advertisement.Show(videoPlacement);
+        }
     }
 
 }
