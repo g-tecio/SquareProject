@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
      public Image UIBackground;
      int randomBackground;
 
+     public string bannerPlacement = "QbixBanner";
+     public bool testMode = false;
+    public const string gameID = "2988439";
+
 
    
 
@@ -79,10 +83,18 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    void Start()
-    {
-      
+    void Start () {
+        Advertisement.Initialize (gameID, testMode);
+        StartCoroutine (ShowBannerWhenReady ());
     }
+
+    IEnumerator ShowBannerWhenReady () {
+        while (!Advertisement.IsReady ("banner")) {
+            yield return new WaitForSeconds (0.5f);
+        }
+        Advertisement.Show (bannerPlacement);
+    }
+
 
     void Update()
     {
