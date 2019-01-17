@@ -13,7 +13,7 @@ public class shareFunction : MonoBehaviour
    public void startShare()
 {
 		StartCoroutine(TakeSSAndShare());
-		score = GameObject.Find("scoreManager").GetComponent<ScoreManager>().currentScore;
+		score = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore;
 }
 	
 private IEnumerator TakeSSAndShare()
@@ -30,7 +30,7 @@ private IEnumerator TakeSSAndShare()
 	// To avoid memory leaks
 	Destroy( ss );
 
-	new NativeShare().AddFile(filePath).SetSubject( "Subject goes here" ).SetText("https://play.google.com/store/apps/details?id=com.games.cartwheelgalaxy.qbix").Share();
+	new NativeShare().AddFile(filePath).SetSubject( "Subject goes here" ).SetText("I got " + score + " in Q-Bix, can you beat me? https://play.google.com/store/apps/details?id=com.games.cartwheelgalaxy.qbix").Share();
 
 	// Share on WhatsApp only, if installed (Android only)
 	//if( NativeShare.TargetExists( "com.whatsapp" ) )
