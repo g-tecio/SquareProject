@@ -11,14 +11,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
       public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton;
     bool toggle;
     int numGame;
-    
 
-    // public AudioSource audio;
-
-     public Image UIBackground;
      int randomBackground;
      public string videoPlacement = "video";
      public bool testMode = false;
@@ -39,36 +35,8 @@ public class GameManager : MonoBehaviour {
         logo.SetActive(true);
         store.SetActive(true);
         leadboards.SetActive(true);
-        
+        noAdsButton.SetActive(true);
 
-        //Random Background
-       /*  UIBackground = GameObject.Find("PanelImageBackground").GetComponent<Image>();
-        randomBackground = Random.Range(1,8);
-        switch(randomBackground)
-        {
-             case 1:
-                UIBackground.sprite = Resources.Load<Sprite>("Assets/Backgrounds/gradient1");
-                break;
-            case 2:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient2");
-                break;
-            case 3:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient3");
-                break;
-            case 4:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient4");
-                break;
-            case 5:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient5");
-                break;
-            case 6:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient6");
-                break;
-            case 7:
-                UIBackground.sprite = Resources.Load<Sprite>("Backgrounds/gradient7");
-                break;
-        } */
-        
           if (PlayerPrefs.HasKey("select"))
         {
             if (PlayerPrefs.GetInt("select") == 1)
@@ -124,7 +92,8 @@ public class GameManager : MonoBehaviour {
         instructions.SetActive(false);
         logo.SetActive(false);
          store.SetActive(false);
-        leadboards.SetActive(false); 
+        leadboards.SetActive(false);
+        noAdsButton.SetActive(false);
     }
 
     public void GameOver(){
