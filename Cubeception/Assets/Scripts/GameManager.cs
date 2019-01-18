@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, commingSoon,closeBtn;
     bool toggle;
     int numGame;
+    
    
 
 
@@ -103,12 +104,15 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         numGame = numGame + 1;
         PlayerPrefs.SetInt("numGame", numGame);
+       
 
         if (numGame % 3 == 0)
         {
 
         }
     }
+
+    
 
     
 
