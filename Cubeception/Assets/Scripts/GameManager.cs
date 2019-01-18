@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
-using GoogleMobileAds.Api;
+
 
 
 
@@ -16,31 +16,12 @@ public class GameManager : MonoBehaviour {
     bool toggle;
     int numGame;
 
-    string adUnitId;
-    InterstitialAd interstitial;
-
      int randomBackground;
      public string videoPlacement = "video";
      public bool testMode = false;
     public const string gameID = "2988439";
     
-   private void RequestInterstitial()
-{
-    #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-5267056163100832/8575852612";
-    #elif UNITY_IPHONE
-        string adUnitId = "";
-    #else
-        string adUnitId = "unexpected_platform";
-    #endif
-
-    // Initialize an InterstitialAd.
-    InterstitialAd interstitial = new InterstitialAd(adUnitId);
-    // Create an empty ad request.
-    AdRequest request = new AdRequest.Builder().Build();
-    // Load the interstitial with the request.
-    interstitial.LoadAd(request);
-}
+ 
 
 
 
@@ -73,21 +54,17 @@ public class GameManager : MonoBehaviour {
                 AudioListener.volume = 1f;
             }
         }
-
-        if (interstitial.IsLoaded()) {
-    interstitial.Show();
     }
 
         
         
-    }
+    
 
   
 
     void Start () {
         Advertisement.Initialize (gameID, testMode);
          numGame = PlayerPrefs.GetInt("numGame");
-         
     }
 
     
@@ -146,7 +123,9 @@ public class GameManager : MonoBehaviour {
         if (numGame % 3 == 0)
         {
               Advertisement.Show(videoPlacement);
+              Debug.Log("hola");
         }
     }
-
 }
+
+
