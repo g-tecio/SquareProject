@@ -7,9 +7,6 @@ public class SquareMovement : MonoBehaviour {
 	public float speed;
     float duration;
 
-    float t = 0f;
-    Color color1, color2;
-
     public void Start () {
         enabled = true;
     }
