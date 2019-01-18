@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 
@@ -15,18 +14,7 @@ public class GameManager : MonoBehaviour {
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, closeButton, commmingSoon;
     bool toggle;
     int numGame;
-
-     int randomBackground;
-     public string videoPlacement = "video";
-     public bool testMode = false;
     public const string gameID = "2988439";
-    
- 
-
-
-
-
-   
 
     void Awake()
     {
@@ -55,7 +43,6 @@ public class GameManager : MonoBehaviour {
         }
     }
     void Start () {
-        Advertisement.Initialize (gameID, testMode);
          numGame = PlayerPrefs.GetInt("numGame");
     }
 
@@ -108,9 +95,10 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         numGame = numGame + 1;
         PlayerPrefs.SetInt("numGame", numGame);
+        
         if (numGame % 3 == 0)
         {
-              Advertisement.Show(videoPlacement);
+              
         }
     }
 }
