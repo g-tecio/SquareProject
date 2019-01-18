@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
       public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, closeButton, commmingSoon;
     bool toggle;
     int numGame;
 
@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour {
         store.SetActive(true);
         leadboards.SetActive(true);
         noAdsButton.SetActive(true);
-
           if (PlayerPrefs.HasKey("select"))
         {
             if (PlayerPrefs.GetInt("select") == 1)
@@ -55,13 +54,6 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-
-        
-        
-    
-
-  
-
     void Start () {
         Advertisement.Initialize (gameID, testMode);
          numGame = PlayerPrefs.GetInt("numGame");
@@ -72,19 +64,14 @@ public class GameManager : MonoBehaviour {
     {
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
         {
-            
             PlayerPrefs.SetInt("select", 1);
             AudioListener.volume = 0f;
         }
         else
         {
-            
             PlayerPrefs.SetInt("select", 0);
             AudioListener.volume = 1f;
         }
-
-       
-        
     }
 
 
@@ -100,6 +87,8 @@ public class GameManager : MonoBehaviour {
          store.SetActive(false);
         leadboards.SetActive(false);
         noAdsButton.SetActive(false);
+        closeButton.SetActive(false);
+        commmingSoon.SetActive(false);
     }
 
     public void GameOver(){
@@ -119,11 +108,9 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         numGame = numGame + 1;
         PlayerPrefs.SetInt("numGame", numGame);
-
         if (numGame % 3 == 0)
         {
               Advertisement.Show(videoPlacement);
-              Debug.Log("hola");
         }
     }
 }

@@ -33,6 +33,7 @@ public class ScoreManager : MonoBehaviour {
 	void Start () 
 	{
         GetBestScore();
+        getCurrency();
 	}
 
     void GetBestScore(){

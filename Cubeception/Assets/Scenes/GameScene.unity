@@ -3251,7 +3251,7 @@ Animator:
   m_GameObject: {fileID: 1099516624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8ec6791deecf45c7938076ca50b30c9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -4353,6 +4353,8 @@ MonoBehaviour:
   leadboards: {fileID: 204738060}
   toggleButton: {fileID: 33382994}
   noAdsButton: {fileID: 1186944903}
+  closeButton: {fileID: 1730846513}
+  commmingSoon: {fileID: 1909374962}
   videoPlacement: video
   testMode: 0
 --- !u!114 &1622390672
