@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 
@@ -11,15 +10,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
       public GameObject gameOverPanel;
-    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton;
+    public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, commingSoon,closeBtn;
     bool toggle;
     int numGame;
-
-     int randomBackground;
-     public string videoPlacement = "video";
-     public bool testMode = false;
-    public const string gameID = "2988439";
-    
+   
 
 
    
@@ -54,14 +48,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start () {
-        Advertisement.Initialize (gameID, testMode);
          numGame = PlayerPrefs.GetInt("numGame");
-        
-        
     }
-
-    
-
     void Update()
     {
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
@@ -94,6 +82,8 @@ public class GameManager : MonoBehaviour {
          store.SetActive(false);
         leadboards.SetActive(false);
         noAdsButton.SetActive(false);
+        closeBtn.SetActive(false);
+        commingSoon.SetActive(false);
     }
 
     public void GameOver(){
@@ -116,8 +106,12 @@ public class GameManager : MonoBehaviour {
 
         if (numGame % 3 == 0)
         {
-              Advertisement.Show(videoPlacement);
+
         }
     }
+
+    
+
+
 
 }
