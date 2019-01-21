@@ -9,8 +9,6 @@ using GoogleMobileAds.Api;
 
 
 public class GameManager : MonoBehaviour {
-
-
     private InterstitialAd interstitial;
       public GameObject gameOverPanel;
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, commingSoon,closeBtn;
@@ -82,11 +80,6 @@ public class GameManager : MonoBehaviour {
          RequestInterstitial();
     }
 
-    void ShowAd()
-    {
-        showInterstitialAd = true;
-    }
-
     void Update()
     {
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
@@ -139,7 +132,7 @@ public class GameManager : MonoBehaviour {
         if (numGame % 3 == 0)
         {
             ShowInterstitial();
-           Debug.Log("hi");
+           
         }
             
     }
