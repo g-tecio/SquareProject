@@ -4,20 +4,49 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using GoogleMobileAds.Api;
 
 
 
 public class GameManager : MonoBehaviour {
 
+
+    private InterstitialAd interstitial;
       public GameObject gameOverPanel;
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, commingSoon,closeBtn;
-    bool toggle;
     int numGame;
+
+    public static bool showInterstitialAd;
     
-   
-
-
-   
+     private void RequestInterstitial()
+     {
+         #if UNITY_ANDROID
+             string adUnitId = "ca-app-pub-5267056163100832/3758586307";
+         #elif UNITY_IPHONE
+             string adUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
+         #else
+             string adUnitId = "unexpected_platform";
+         #endif
+                 
+         // Create an interstitial.
+         this.interstitial = new InterstitialAd(adUnitId);
+         // Load an interstitial ad.
+         this.interstitial.LoadAd(this.CreateAdRequest());
+     }
+     
+     // Returns an ad request
+     private AdRequest CreateAdRequest()
+     {
+         return new AdRequest.Builder().Build();
+     }
+     
+     private void ShowInterstitial()
+     { 
+         if (interstitial.IsLoaded())
+         {
+             interstitial.Show(); 
+         }
+     }
 
     void Awake()
     {
@@ -50,7 +79,14 @@ public class GameManager : MonoBehaviour {
 
     void Start () {
          numGame = PlayerPrefs.GetInt("numGame");
+         RequestInterstitial();
     }
+
+    void ShowAd()
+    {
+        showInterstitialAd = true;
+    }
+
     void Update()
     {
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
@@ -65,12 +101,8 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("select", 0);
             AudioListener.volume = 1f;
         }
-
-       
         
     }
-
-
 
     public void startGame() {
         Time.timeScale = 1;
@@ -104,18 +136,11 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         numGame = numGame + 1;
         PlayerPrefs.SetInt("numGame", numGame);
-       
-
         if (numGame % 3 == 0)
         {
-
+            ShowInterstitial();
+           Debug.Log("hi");
         }
+            
     }
-
-    
-
-    
-
-
-
 }
