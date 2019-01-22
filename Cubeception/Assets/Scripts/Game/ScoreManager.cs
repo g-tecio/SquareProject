@@ -16,6 +16,11 @@ public class ScoreManager : MonoBehaviour {
 	public TextMeshProUGUI currentScoreText;
     public TextMeshProUGUI bestScoreText;
 
+     public Missions Script;
+
+     //Missions
+     public int scoreAcumlated, scoreStored, scoreAcumlated2, scoreStored2;
+
      //currency
     public int saveCurrency;
     public int currency;
@@ -34,6 +39,11 @@ public class ScoreManager : MonoBehaviour {
 	{
         GetBestScore();
         getCurrency();
+        scoreStored = PlayerPrefs.GetInt("a");
+        print("SCORE ACUMULADO START:" + scoreStored);
+
+        scoreStored2 = PlayerPrefs.GetInt("b");
+        print("SCORE ACUMULADO SEGUNDO START:" + scoreStored2); 
 	}
 
     void GetBestScore(){
@@ -41,8 +51,24 @@ public class ScoreManager : MonoBehaviour {
     }
 	
 	public void AddScore(){
+
+        Missions missions = gameObject.GetComponent<Missions>();
 		currentScore++;
 		currentScoreText.text = currentScore.ToString();
+
+        scoreAcumlated = PlayerPrefs.GetInt("a");
+            scoreAcumlated = scoreAcumlated + 1;
+            print("SCORE ACUMULADO TIEMPO REAL: " + scoreAcumlated);
+            PlayerPrefs.SetInt("a", scoreAcumlated);
+
+            if (missions.claimedR2 == true)
+        {
+            print("Se cumplieron las condiciones");
+            scoreAcumlated2 = PlayerPrefs.GetInt("b");
+            scoreAcumlated2 = scoreAcumlated2 + 1;
+            print("SCORE SEGUNDO: " + scoreAcumlated2);
+            PlayerPrefs.SetInt("b", scoreAcumlated2);
+        }
 
         if(currentScore > PlayerPrefs.GetInt("BestScore", 0)){
             bestScoreText.text = currentScore.ToString();
@@ -60,6 +86,10 @@ public class ScoreManager : MonoBehaviour {
             spawner8.SetActive(true);
             spawner10.SetActive(true);
         }
+
+
+
+
 
     //Currency
         if (premium == false)
@@ -87,6 +117,8 @@ public class ScoreManager : MonoBehaviour {
             }
         }
         //End currency
+
+
     }
 
     //Show +1    
@@ -95,6 +127,29 @@ public class ScoreManager : MonoBehaviour {
         currencyBonus.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         currencyBonus.SetActive(false);
+    }
+
+    void Update()
+    {
+         scoreStored = PlayerPrefs.GetInt("a");
+       // print("SCORE ACUMULADO START:" + scoreStored);
+
+        scoreStored2 = PlayerPrefs.GetInt("b");
+       // print("SCORE ACUMULADO SEGUNDO START:" + scoreStored2);
+        
+
+        Missions missions = gameObject.GetComponent<Missions>();
+        if (missions.claimedR2 == true)
+        {
+            scoreAcumlated = 0;
+            PlayerPrefs.SetInt("a", scoreAcumlated);
+        }
+
+        if (missions.claimedR4 == true)
+        {
+            scoreAcumlated2 = 0;
+            PlayerPrefs.SetInt("b", scoreAcumlated2);
+        }
     }
 }
 

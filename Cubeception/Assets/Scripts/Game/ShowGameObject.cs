@@ -6,7 +6,7 @@ public class ShowGameObject : MonoBehaviour {
 
 	// Use this for initialization
 
-	public GameObject CommingSoon, BtnClose;
+	public GameObject CommingSoon, BtnClose,missionsPanel,gameOverPanel;
 	void Start () {
 	
 	}
@@ -34,6 +34,21 @@ public class ShowGameObject : MonoBehaviour {
 		CommingSoon.SetActive(false);
 		BtnClose.SetActive(false);
 	}
+
+	  public void ShowMissions()
+    {
+        missionsPanel.gameObject.SetActive(true);
+        gameOverPanel.gameObject.SetActive(false);
+
+    }
+
+
+    public void CloseMissions()
+    {
+        missionsPanel.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(true);
+
+    }
 
 
 
