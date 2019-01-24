@@ -7,7 +7,7 @@ using TMPro;
 
 public class Missions : MonoBehaviour
 {
-    int score;
+    int score, score2;
     int actualCurrency;
     public bool mission01, mission02, mission03, mission04;
     public bool claimedR1, claimedR2, claimedR3, claimedR4;
@@ -81,7 +81,7 @@ public class Missions : MonoBehaviour
 
         if (mission01 == true && mission03 == true && claimedR1 == true && claimedR3 == true)
         {
-
+            /*
             // print("YA SE RESETEARON LOS VALORES DE LA MISSION 01 Y MISSION 03 START");
             mission01 = false;
             mission03 = false;
@@ -93,7 +93,7 @@ public class Missions : MonoBehaviour
 
             PlayerPrefs.SetInt("claimedR1", Convert.ToInt32(claimedR1));
             PlayerPrefs.SetInt("claimedR3", Convert.ToInt32(claimedR3));
-
+            */
             mission01Text.gameObject.SetActive(true);
             buttonClaimReward03.gameObject.SetActive(false);
             mission03Text.gameObject.SetActive(false);
@@ -107,7 +107,7 @@ public class Missions : MonoBehaviour
 
         if (mission02 == true && mission04 == true && claimedR2 == true && claimedR4 == true)
         {
-
+            /*
             // print("YA SE RESETEARON LOS VALORES DE LA MISSION 02 Y MISSION 04 START");
             mission02 = false;
             mission04 = false;
@@ -119,7 +119,7 @@ public class Missions : MonoBehaviour
 
             PlayerPrefs.SetInt("claimedR2", Convert.ToInt32(claimedR2));
             PlayerPrefs.SetInt("claimedR4", Convert.ToInt32(claimedR4));
-
+            */
             mission02Text.gameObject.SetActive(true);
             buttonClaimReward04.gameObject.SetActive(false);
             mission04Text.gameObject.SetActive(false);
@@ -138,6 +138,7 @@ public class Missions : MonoBehaviour
     {
 
         score = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore;
+        score2 = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore2;
         scoreStored = GameObject.Find("GameManager").GetComponent<ScoreManager>().scoreAcumlated;
         scoreStored2 = GameObject.Find("GameManager").GetComponent<ScoreManager>().scoreAcumlated2;
 
@@ -152,6 +153,13 @@ public class Missions : MonoBehaviour
         currencyTexto = GameObject.Find("GameManager").GetComponent<ScoreManager>().currencyText;
         actualCurrency = GameObject.Find("GameManager").GetComponent<ScoreManager>().saveCurrency;
 
+
+        if (actualCurrency >= 999)
+        {
+            currencyTexto.text = "999";
+        }
+
+
         /*
         if (scoreStored2 == 0)
         {
@@ -161,7 +169,7 @@ public class Missions : MonoBehaviour
 
         if (mission01 == true && mission03 == true && claimedR1 == true && claimedR3 == true)
         {
-
+            /*
             //print("YA SE RESETEARON LOS VALORES DE LA MISSION 01 Y MISSION 03 UPDATE");
             mission01 = false;
             mission03 = false;
@@ -173,7 +181,7 @@ public class Missions : MonoBehaviour
 
             PlayerPrefs.SetInt("claimedR1", Convert.ToInt32(claimedR1));
             PlayerPrefs.SetInt("claimedR3", Convert.ToInt32(claimedR3));
-
+            */
             mission01Text.gameObject.SetActive(true);
             buttonClaimReward03.gameObject.SetActive(false);
             mission03Text.gameObject.SetActive(false);
@@ -188,7 +196,7 @@ public class Missions : MonoBehaviour
 
         if (mission02 == true && mission04 == true && claimedR2 == true && claimedR4 == true)
         {
-
+            /*
             // print("YA SE RESETEARON LOS VALORES DE LA MISSION 02 Y MISSION 04 UPDATE");
             mission02 = false;
             mission04 = false;
@@ -200,7 +208,7 @@ public class Missions : MonoBehaviour
 
             PlayerPrefs.SetInt("claimedR2", Convert.ToInt32(claimedR2));
             PlayerPrefs.SetInt("claimedR4", Convert.ToInt32(claimedR4));
-
+            */
             mission02Text.gameObject.SetActive(true);
             buttonClaimReward04.gameObject.SetActive(false);
             mission04Text.gameObject.SetActive(false);
@@ -215,7 +223,7 @@ public class Missions : MonoBehaviour
         if (panelMissions.gameObject.activeInHierarchy == true)
         {
             panelGameOver.gameObject.SetActive(false);
-            currentScore.gameObject.SetActive(false);
+            currentScore.gameObject.SetActive(true);
         }
         else
         {
@@ -294,7 +302,7 @@ public class Missions : MonoBehaviour
     public void Mission02()
     {
         // SCORE [100/100]
-        if (scoreStored >= 1)
+        if (scoreStored >= 100)
         {
             mission02 = true;
 
@@ -308,12 +316,17 @@ public class Missions : MonoBehaviour
     public void Mission03()
     {
         // SCORE 40 IN A SINGLE GAME
-        if (mission01 && claimedR1 && score >= 40)
+        if (score2 >= 40)
         {
             mission03 = true;
             //print("SE CUMPLIO LA MISSION 3");
 
-            buttonClaimReward03.gameObject.SetActive(true);
+            if (mission01 == true && score == 40)
+            {
+                buttonClaimReward03.gameObject.SetActive(true);
+            }
+
+            
 
             PlayerPrefs.SetInt("mission03", Convert.ToInt32(mission03));
         }
@@ -323,7 +336,7 @@ public class Missions : MonoBehaviour
     public void Mission04()
     {
         // SCORE [500/500]
-        if (scoreStored2 >= 3)
+        if (scoreStored2 >= 500)
         {
             mission04 = true;
 
@@ -335,7 +348,8 @@ public class Missions : MonoBehaviour
 
     public void claimReward()
     {
-        actualCurrency = actualCurrency + 2;
+        // actualCurrency = actualCurrency + 2;
+        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 2;
         claimedR1 = true;
 
         currencyTexto.text = actualCurrency.ToString();
@@ -347,7 +361,8 @@ public class Missions : MonoBehaviour
 
     public void claimReward2()
     {
-        actualCurrency = actualCurrency + 4;
+        //actualCurrency = actualCurrency + 4;
+        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
         claimedR2 = true;
 
         PlayerPrefs.SetInt("claimedR2", Convert.ToInt32(claimedR2));
@@ -357,7 +372,8 @@ public class Missions : MonoBehaviour
 
     public void claimReward03()
     {
-        actualCurrency = actualCurrency + 4;
+        //  actualCurrency = actualCurrency + 4;
+        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
         claimedR3 = true;
 
         PlayerPrefs.SetInt("claimedR3", Convert.ToInt32(claimedR3));
@@ -367,18 +383,19 @@ public class Missions : MonoBehaviour
 
     public void claimReward04()
     {
-        actualCurrency = actualCurrency + 8;
+        //actualCurrency = actualCurrency + 8;
+        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 8;
         claimedR4 = true;
         buttonClaimReward04.gameObject.SetActive(false);
-        PlayerPrefs.SetInt("claimedR4", Convert.ToInt32(claimedR4));
+        PlayerPrefs.SetInt("claimedR4", Convert.ToInt32(claimedR3));
         PlayerPrefs.SetInt("Currency", actualCurrency);
         currencyTexto.text = PlayerPrefs.GetInt("Currency", actualCurrency).ToString();
 
-        //PlayerPrefs.DeleteKey("mission02");
-       // PlayerPrefs.DeleteKey("mission04");
+        PlayerPrefs.DeleteKey("mission02");
+        PlayerPrefs.DeleteKey("mission04");
 
-       // PlayerPrefs.DeleteKey("claimedR2");
-      // PlayerPrefs.DeleteKey("claimedR4");
+        PlayerPrefs.DeleteKey("claimedR2");
+        PlayerPrefs.DeleteKey("claimedR4");
     }
 
 }

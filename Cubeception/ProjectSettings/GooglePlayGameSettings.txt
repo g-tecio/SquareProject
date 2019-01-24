@@ -1,5 +1,5 @@
-lastUpgrade=00957
-proj.pluginVersion=0.9.57
+lastUpgrade=00958
+proj.pluginVersion=0.9.58
 proj.AppId=1085658703695
 and.BundleId=com.games.cartwheelgalaxy.qbix
 proj.classDir=Assets

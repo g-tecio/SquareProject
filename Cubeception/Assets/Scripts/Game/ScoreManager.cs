@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour {
     public GameObject spawner8;
     public GameObject spawner10;
       public int currentScore = 0;
+
+      public int currentScore2 = 0;
 	public TextMeshProUGUI currentScoreText;
     public TextMeshProUGUI bestScoreText;
 
@@ -73,6 +75,11 @@ public class ScoreManager : MonoBehaviour {
         if(currentScore > PlayerPrefs.GetInt("BestScore", 0)){
             bestScoreText.text = currentScore.ToString();
             PlayerPrefs.SetInt("BestScore", currentScore);
+        }
+
+        if(missions.claimedR1 == true)
+        {
+            currentScore2++;
         }
 
 

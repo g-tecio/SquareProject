@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour {
       public GameObject gameOverPanel;
     public GameObject currentScoreText,tapToStart,startButton, speaker, instructions,logo,store,leadboards,toggleButton, noAdsButton, commingSoon,closeBtn;
     int numGame;
-
+    public long score;
+    string leaderboardID = "CgkIz860sswfEAIQAQ";
     public static bool showInterstitialAd;
+
     
      private void RequestInterstitial()
      {
@@ -82,6 +84,8 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
+        score = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore;
+       Debug.Log("SCORE DE GAME MANAGER " + score);
         if (toggleButton.GetComponent<UnityEngine.UI.Toggle>().isOn == true)
         {
             
@@ -114,6 +118,22 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver(){
         StartCoroutine(GameOverCoroutine());
+       #if UNITY_ANDROID
+        Debug.Log("Reporting score " + score + " on leaderboard " + leaderboardID);
+        Social.ReportScore(score, leaderboardID, success =>
+        {
+            Debug.Log(success ? "Reported score successfully" : "Failed to report score");
+        });
+
+#endif
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            Debug.Log("Reporting score " + score + " on leaderboard " + leaderboardID);
+            Social.ReportScore(score, leaderboardID, success =>
+            {
+                Debug.Log(success ? "Reported score successfully" : "Failed to report score");
+            });
+        }
     }
 
     IEnumerator GameOverCoroutine(){
@@ -132,8 +152,6 @@ public class GameManager : MonoBehaviour {
         if (numGame % 3 == 0)
         {
             ShowInterstitial();
-           
         }
-            
     }
 }
