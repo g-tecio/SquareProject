@@ -30,8 +30,12 @@ private IEnumerator TakeSSAndShare()
 	// To avoid memory leaks
 	Destroy( ss );
 
-	new NativeShare().AddFile(filePath).SetSubject( "Subject goes here" ).SetText("I got " + score + " in Q-Bix, can you beat me? https://play.google.com/store/apps/details?id=com.games.cartwheelgalaxy.qbix").Share();
 
+        #if UNITY_ANDROID
+	new NativeShare().AddFile(filePath).SetSubject( "Subject goes here" ).SetText("I got " + score + " in Q-Bix, can you beat me? https://play.google.com/store/apps/details?id=com.games.cartwheelgalaxy.qbix").Share();
+        #elif UNITY_IPHONE
+	new NativeShare().AddFile(filePath).SetSubject( "Subject goes here" ).SetText("I got " + score + " in Q-Bix, can you beat me? https://itunes.apple.com/developer/cartwheel-galaxy-inc/id412798912").Share();
+        #endif
 	// Share on WhatsApp only, if installed (Android only)
 	//if( NativeShare.TargetExists( "com.whatsapp" ) )
 	//	new NativeShare().AddFile( filePath ).SetText( "Hello world!" ).SetTarget( "com.whatsapp" ).Share();

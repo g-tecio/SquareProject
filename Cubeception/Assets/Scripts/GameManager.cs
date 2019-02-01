@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour {
     int numGame;
     public long score;
     string leaderboardID = "CgkIz860sswfEAIQAQ";
+    string leaderboardiOS = "55971206";
     public static bool showInterstitialAd;
+
+    public bool Adfree;
 
     
      private void RequestInterstitial()
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour {
          #if UNITY_ANDROID
              string adUnitId = "ca-app-pub-5267056163100832/3758586307";
          #elif UNITY_IPHONE
-             string adUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
+             string adUnitId = "ca-app-pub-5267056163100832/4107812340";
          #else
              string adUnitId = "unexpected_platform";
          #endif
@@ -98,6 +101,14 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("select", 0);
             AudioListener.volume = 1f;
         }
+
+         Adfree = GameObject.Find("PurchaserManager").GetComponent<PurchaserManager>().Adfree;
+
+         if (Adfree == true)
+         {
+             AdMob.bannerView.Destroy();
+             
+         }
         
     }
 
@@ -124,17 +135,11 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log(success ? "Reported score successfully" : "Failed to report score");
         });
+    
+        #endif
 
-#endif
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            Debug.Log("Reporting score " + score + " on leaderboard " + leaderboardID);
-            Social.ReportScore(score, leaderboardID, success =>
-            {
-                Debug.Log(success ? "Reported score successfully" : "Failed to report score");
-            });
-        }
-    }
+
+   
 
     IEnumerator GameOverCoroutine(){
         yield return new WaitForSecondsRealtime(0.3f);
@@ -145,13 +150,17 @@ public class GameManager : MonoBehaviour {
         yield break;
     }
 
+    }
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         numGame = numGame + 1;
         PlayerPrefs.SetInt("numGame", numGame);
-        if (numGame % 3 == 0)
+        if (numGame % 3 == 0 && Adfree == false)
         {
             ShowInterstitial();
         }
+        
     }
+    
 }
+

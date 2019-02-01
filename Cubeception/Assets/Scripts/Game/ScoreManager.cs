@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour {
     public int currency;
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI currencyPlus;
-    public GameObject currencyBonus;
+    public GameObject currencyBonus, currencyBonusDoble;
     private bool premium = false;
 
 
@@ -94,51 +94,83 @@ public class ScoreManager : MonoBehaviour {
             spawner10.SetActive(true);
         }
 
+        ///Currency
+       if (premium == false)
+       {
+
+           if (saveCurrency >= 999)
+           {
+               currencyText.text = "999";
+           }
+
+           if (currentScore % 10 == 0)
+           {
+               currency++;
+
+               saveCurrency = PlayerPrefs.GetInt("Currency", saveCurrency) + 1;
+               PlayerPrefs.SetInt("Currency", saveCurrency);
+               currencyText.text = PlayerPrefs.GetInt("Currency", saveCurrency).ToString();
+
+               currencyPlus.text = "+" + currency.ToString();
+               StartCoroutine(showCurrency());
+           }
+       }
+       else
+       {
+          // print("YEAH YOU GOT THE PREMIUM VERSION");
+           if (saveCurrency >= 999)
+           {
+               currencyText.text = "999";
+           }
+
+           if (currentScore % 10 == 0)
+           {
+               currency = currency + 2;
+              // print("CURRENCYALDOBLE" + currency);
+               saveCurrency = PlayerPrefs.GetInt("Currency", saveCurrency) + 2;
+               PlayerPrefs.SetInt("Currency", saveCurrency);
+               currencyText.text = PlayerPrefs.GetInt("Currency", saveCurrency).ToString();
+
+               currencyPlus.text = "+" + currency.ToString();
+               StartCoroutine(showCurrencyDouble());
+           }
+       }
+
+       //End currency
+
+       if (currentScore > PlayerPrefs.GetInt("BestScore", 0))
+       {
+           bestScoreText.text = currentScore.ToString();
+           PlayerPrefs.SetInt("BestScore", currentScore);
+       }
+
+   }
+
+   //Show +1
+   IEnumerator showCurrency()
+   {
+       currencyBonus.SetActive(true);
+       yield return new WaitForSeconds(0.5f);
+       currencyBonus.SetActive(false);
+   }
+//Show +2
+   IEnumerator showCurrencyDouble()
+   {
+       currencyBonusDoble.SetActive(true);
+       yield return new WaitForSeconds(0.5f);
+       currencyBonusDoble.SetActive(false);
+   }
 
 
 
-
-    //Currency
-        if (premium == false)
-        {
-            if (currentScore % 10 == 0)
-            {
-                currency++;
-
-                saveCurrency = PlayerPrefs.GetInt("Currency", saveCurrency) + 1;
-                PlayerPrefs.SetInt("Currency", saveCurrency);
-                currencyText.text = PlayerPrefs.GetInt("Currency", saveCurrency).ToString();
-                
-                currencyPlus.text = "+" + currency.ToString();
-                StartCoroutine(showCurrency());
-            }
-        }
-        else
-        {
-
-            currencyPlus.GetComponent<Text>().text = "+2";
-            if (currentScore % 10 == 0)
-            {
-                currency = currency + 2;
-                StartCoroutine(showCurrency());
-            }
-        }
-        //End currency
+   
 
 
-    }
-
-    //Show +1    
-    IEnumerator showCurrency()
-    {
-        currencyBonus.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        currencyBonus.SetActive(false);
-    }
 
     void Update()
     {
-         scoreStored = PlayerPrefs.GetInt("a");
+        saveCurrency = PlayerPrefs.GetInt("Currency", saveCurrency);
+        scoreStored = PlayerPrefs.GetInt("a");
        // print("SCORE ACUMULADO START:" + scoreStored);
 
         scoreStored2 = PlayerPrefs.GetInt("b");
@@ -157,6 +189,8 @@ public class ScoreManager : MonoBehaviour {
             scoreAcumlated2 = 0;
             PlayerPrefs.SetInt("b", scoreAcumlated2);
         }
+
+        premium = GameObject.Find("PurchaserManager").GetComponent<PurchaserManager>().Adfree;
     }
 }
 

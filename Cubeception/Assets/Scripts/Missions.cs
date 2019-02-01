@@ -19,6 +19,10 @@ public class Missions : MonoBehaviour
     public TextMeshProUGUI mission02Text, mission04Text;
 
     int scoreStored, scoreStored2;
+    public bool Adfree;
+
+     public TextMeshProUGUI textButtonMission01, textButtonMission02, textButtonMission03, textButtonMission04;
+
 
     void Start()
     {
@@ -137,6 +141,17 @@ public class Missions : MonoBehaviour
     void Update()
     {
 
+        Adfree = GameObject.Find("PurchaserManager").GetComponent<PurchaserManager>().Adfree;
+        //print("ADFREE UPDATE " + Adfree);
+
+        if (Adfree == true)
+        {
+            textButtonMission01.text = "+4";
+            textButtonMission02.text = "+8";
+            textButtonMission03.text = "+8";
+            textButtonMission04.text = "+16";
+        }
+
         score = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore;
         score2 = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore2;
         scoreStored = GameObject.Find("GameManager").GetComponent<ScoreManager>().scoreAcumlated;
@@ -223,7 +238,7 @@ public class Missions : MonoBehaviour
         if (panelMissions.gameObject.activeInHierarchy == true)
         {
             panelGameOver.gameObject.SetActive(false);
-            currentScore.gameObject.SetActive(true);
+            currentScore.gameObject.SetActive(false);
         }
         else
         {
@@ -348,8 +363,15 @@ public class Missions : MonoBehaviour
 
     public void claimReward()
     {
-        // actualCurrency = actualCurrency + 2;
-        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 2;
+        if (Adfree == true)
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
+
+        }
+        else
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 2;
+        }
         claimedR1 = true;
 
         currencyTexto.text = actualCurrency.ToString();
@@ -362,7 +384,17 @@ public class Missions : MonoBehaviour
     public void claimReward2()
     {
         //actualCurrency = actualCurrency + 4;
-        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
+        claimedR2 = true;
+        if (Adfree == true)
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 8;
+
+        }
+        else
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
+
+        }
         claimedR2 = true;
 
         PlayerPrefs.SetInt("claimedR2", Convert.ToInt32(claimedR2));
@@ -373,7 +405,16 @@ public class Missions : MonoBehaviour
     public void claimReward03()
     {
         //  actualCurrency = actualCurrency + 4;
-        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
+        claimedR3 = true;
+        if (Adfree == true)
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 8;
+
+        }
+        else
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 4;
+        }
         claimedR3 = true;
 
         PlayerPrefs.SetInt("claimedR3", Convert.ToInt32(claimedR3));
@@ -384,7 +425,17 @@ public class Missions : MonoBehaviour
     public void claimReward04()
     {
         //actualCurrency = actualCurrency + 8;
-        actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 8;
+        claimedR4 = true;
+        if (Adfree == true)
+        {
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 16;
+            mission01Text.text = "+4";
+        }
+        else
+        {
+
+            actualCurrency = PlayerPrefs.GetInt("Currency", actualCurrency) + 8;
+        }
         claimedR4 = true;
         buttonClaimReward04.gameObject.SetActive(false);
         PlayerPrefs.SetInt("claimedR4", Convert.ToInt32(claimedR3));
