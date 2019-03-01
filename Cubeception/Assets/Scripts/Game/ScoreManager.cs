@@ -42,10 +42,10 @@ public class ScoreManager : MonoBehaviour {
         GetBestScore();
         getCurrency();
         scoreStored = PlayerPrefs.GetInt("a");
-        print("SCORE ACUMULADO START:" + scoreStored);
+      //  print("SCORE ACUMULADO START:" + scoreStored);
 
         scoreStored2 = PlayerPrefs.GetInt("b");
-        print("SCORE ACUMULADO SEGUNDO START:" + scoreStored2); 
+      //  print("SCORE ACUMULADO SEGUNDO START:" + scoreStored2); 
 	}
 
     void GetBestScore(){
@@ -60,15 +60,15 @@ public class ScoreManager : MonoBehaviour {
 
         scoreAcumlated = PlayerPrefs.GetInt("a");
             scoreAcumlated = scoreAcumlated + 1;
-            print("SCORE ACUMULADO TIEMPO REAL: " + scoreAcumlated);
+           // print("SCORE ACUMULADO TIEMPO REAL: " + scoreAcumlated);
             PlayerPrefs.SetInt("a", scoreAcumlated);
 
             if (missions.claimedR2 == true)
         {
-            print("Se cumplieron las condiciones");
+           // print("Se cumplieron las condiciones");
             scoreAcumlated2 = PlayerPrefs.GetInt("b");
             scoreAcumlated2 = scoreAcumlated2 + 1;
-            print("SCORE SEGUNDO: " + scoreAcumlated2);
+           // print("SCORE SEGUNDO: " + scoreAcumlated2);
             PlayerPrefs.SetInt("b", scoreAcumlated2);
         }
 
@@ -103,7 +103,7 @@ public class ScoreManager : MonoBehaviour {
                currencyText.text = "999";
            }
 
-           if (currentScore % 10 == 0)
+           if (currentScore % 8 == 0)
            {
                currency++;
 
@@ -123,7 +123,7 @@ public class ScoreManager : MonoBehaviour {
                currencyText.text = "999";
            }
 
-           if (currentScore % 10 == 0)
+           if (currentScore % 8 == 0)
            {
                currency = currency + 2;
               // print("CURRENCYALDOBLE" + currency);

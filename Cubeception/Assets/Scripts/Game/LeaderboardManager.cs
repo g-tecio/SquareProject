@@ -43,7 +43,7 @@ public class LeaderboardManager : MonoBehaviour
     void Update()
     {
         score = GameObject.Find("GameManager").GetComponent<ScoreManager>().currentScore;
-        Debug.Log("SCORE DE LEADERBOARMANAGER " + score);
+       // Debug.Log("SCORE DE LEADERBOARMANAGER " + score);
     }
 
     void ProcessAuthentication(bool success)
@@ -136,10 +136,8 @@ public class LeaderboardManager : MonoBehaviour
         if (success)
         {
             Debug.Log("(Lollygagger) Signed in!");
-
             // Change sign-in button text
             print("Sign out");
-
             // Show the user's name
             print("Signed in as: " + Social.localUser.userName);
         }

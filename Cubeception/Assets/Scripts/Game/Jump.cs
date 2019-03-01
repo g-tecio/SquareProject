@@ -22,6 +22,8 @@ public class Jump : MonoBehaviour {
 				player.AddForce(Vector2.up * jumpforce);
 				grounded = false;
 		}
+		transform.Rotate (0,0,10);
+
 	}
 
 

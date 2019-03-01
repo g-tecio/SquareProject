@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour {
     int numGame;
     public long score;
     string leaderboardID = "CgkIz860sswfEAIQAQ";
-    string leaderboardiOS = "55971206";
+    string leaderboardiOS = "QbixLeadiOS01";
     public static bool showInterstitialAd;
+
+    public bool loginSuccessful;
 
     public bool Adfree;
 
@@ -83,6 +85,9 @@ public class GameManager : MonoBehaviour {
     void Start () {
          numGame = PlayerPrefs.GetInt("numGame");
          RequestInterstitial();
+         Application.targetFrameRate = 300;
+        QualitySettings.vSyncCount = 1;
+        AuthenticateUser();
     }
 
     void Update()
@@ -127,16 +132,55 @@ public class GameManager : MonoBehaviour {
         commingSoon.SetActive(false);
     }
 
+    void AuthenticateUser(){
+        Social.localUser.Authenticate((bool success) => {
+        if(success)
+        {
+        loginSuccessful = true;
+        Debug.Log("si se logeo");
+        }else
+        {
+        Debug.Log("no se logeo");
+        }});
+}
+
     public void GameOver(){
         StartCoroutine(GameOverCoroutine());
-       #if UNITY_ANDROID
+      /*  #if UNITY_ANDROID
         Debug.Log("Reporting score " + score + " on leaderboard " + leaderboardID);
         Social.ReportScore(score, leaderboardID, success =>
         {
             Debug.Log(success ? "Reported score successfully" : "Failed to report score");
         });
+        #endif */
+        #if !UNITY_EDITOR
+        if(loginSuccessful)
+        {
+        Social.ReportScore(score, leaderboardiOS, (bool success) => {
+        if(success)
+        Debug.Log("Se subio el score");
+        // handle success or failure
+        });
+        }
+        else
+        {
+        Social.localUser.Authenticate((bool success) => {
+        if(success)
+        {
+        loginSuccessful = true;
+        Social.ReportScore(score ,leaderboardiOS, (bool successful) => {
+        // handle success or failure
+        });
+        }
+    else
+    {
+    Debug.Log("nel compa");
+    }
+    // handle success or failure
+    });
+    }
+    #endif
     
-        #endif
 
 
    

@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour {
 
 	public GameObject DeathEffectObj, DeathEffectObjNeon;
 	
-	bool SkinNormal, SkinNeon;
+	bool SkinNormal, SkinNeon, SkinBow;
 	private void OnCollisionEnter2D(Collision2D collision){
 
 		if (collision.gameObject.tag == "Enemy" && SkinNeon == false)
@@ -17,8 +17,8 @@ public class Destroy : MonoBehaviour {
     		Destroy(collision.gameObject);
             addScore();
 
-			print("NORMAL SKIN IN COLLISION" + SkinNormal);
-			print("NEON SKIN IN COLLISION" + SkinNeon);
+			//print("NORMAL SKIN IN COLLISION" + SkinNormal);
+			//print("NEON SKIN IN COLLISION" + SkinNeon);
     		
     	}
 
@@ -43,8 +43,9 @@ public class Destroy : MonoBehaviour {
 	{
 		SkinNormal = GameObject.Find("SkinManager").GetComponent<SkinManager>().SkinNormal;
 		SkinNeon = GameObject.Find("SkinManager").GetComponent<SkinManager>().SkinNeon;
-		print("NORMAL SKIN IN COLLISION" + SkinNormal);
-		print("NEON SKIN IN COLLISION" + SkinNeon);
+		SkinBow = GameObject.Find("SkinManager").GetComponent<SkinManager>().SkinBow;
+		//print("NORMAL SKIN IN COLLISION" + SkinNormal);
+		//print("NEON SKIN IN COLLISION" + SkinNeon);
 
 	}
 
